@@ -9,7 +9,8 @@ import {
 } from "@/ui/card";
 import { Input } from "@/ui/input";
 import { Label } from "@/ui/label";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/ui/tabs";
+import { Separator } from "@/ui/separator";
+import { Link } from "react-router";
 
 export const LoginPage = () => {
   return (
@@ -39,8 +40,15 @@ export const LoginPage = () => {
             />
           </div>
         </CardContent>
-        <CardFooter>
+        <CardFooter className="flex flex-col items-start">
           <Button>Log In</Button>
+          <Separator className="my-4" />
+          <div className="flex items-center gap-4">
+            <p>Don't have an account yet?</p>
+            <Button variant="outline">
+              <Link to="/auth/register">Register</Link>
+            </Button>
+          </div>
         </CardFooter>
       </Card>
     </div>

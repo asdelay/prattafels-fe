@@ -9,8 +9,10 @@ import {
 } from "@/ui/card";
 import { Input } from "@/ui/input";
 import { Label } from "@/ui/label";
+import { Separator } from "@/ui/separator";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/ui/tabs";
 import { useState } from "react";
+import { Link } from "react-router";
 
 export const RegisterPage = () => {
   const [selectedCard, setSelectedCard] = useState("account");
@@ -20,7 +22,7 @@ export const RegisterPage = () => {
         Register
       </h3>
       <div className="my-8 flex w-full sm:max-w-sm flex-col items-center gap-6">
-        <Tabs defaultValue="account">
+        <Tabs value={selectedCard}>
           <TabsList>
             <TabsTrigger
               value="account"
@@ -60,8 +62,17 @@ export const RegisterPage = () => {
                   />
                 </div>
               </CardContent>
-              <CardFooter>
-                <Button>Continue</Button>
+              <CardFooter className="flex flex-col items-start">
+                <Button onClick={() => setSelectedCard("password")}>
+                  Continue
+                </Button>
+                <Separator className="my-4" />
+                <div className="flex items-center gap-4">
+                  <p>Already have an account?</p>
+                  <Button variant="outline">
+                    <Link to="/auth/register">Log In</Link>
+                  </Button>
+                </div>
               </CardFooter>
             </Card>
           </TabsContent>
@@ -91,8 +102,15 @@ export const RegisterPage = () => {
                   />
                 </div>
               </CardContent>
-              <CardFooter>
-                <Button>Save password</Button>
+              <CardFooter className="flex flex-col items-start">
+                <Button>Register</Button>
+                <Separator className="my-4" />
+                <div className="flex items-center gap-4">
+                  <p>Already have an account?</p>
+                  <Button variant="outline">
+                    <Link to="/auth/login">Log In</Link>
+                  </Button>
+                </div>
               </CardFooter>
             </Card>
           </TabsContent>
