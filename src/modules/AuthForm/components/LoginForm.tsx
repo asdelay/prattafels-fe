@@ -1,4 +1,5 @@
 import { useLoginSchema } from "@/modules/AuthForm/helpers/useLoginSchema";
+import { useLoginMutation } from "@/services/loginApi";
 import {
   Card,
   CardContent,
@@ -12,14 +13,27 @@ import { Input } from "@/ui/input";
 import { Label } from "@/ui/label";
 import { Separator } from "@/ui/separator";
 import { Link } from "react-router";
+import { toast } from "sonner";
+import { useDispatch } from "react-redux";
+import { setAccessToken } from "@/modules/AuthForm/authSlice/authSlice";
 
 export const LoginForm = () => {
+  const dispatch = useDispatch();
+  const [login, { isLoading, isError, data }] = useLoginMutation();
+  const onLogin = async (data: { email: string; password: string }) => {
+    try {
+      const result = await login(data).unwrap();
+      dispatch(setAccessToken(result.accessToken));
+      toast.success("Login successful!");
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
   const { register, handleSubmit, errors } = useLoginSchema();
+
+  if (isLoading) return <div>Loading...</div>;
   return (
-    <form
-      className="py-[8%]"
-      onSubmit={handleSubmit((data) => console.log(data))}
-    >
+    <form className="mt-[8%]" onSubmit={handleSubmit((data) => onLogin(data))}>
       <Card className="mt-4">
         <CardHeader>
           <CardTitle>Account</CardTitle>

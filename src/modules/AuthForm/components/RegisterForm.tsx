@@ -1,4 +1,5 @@
 import { useRegisterSchema } from "@/modules/AuthForm/helpers/useRegisterSchema";
+import { type RootState } from "@/store/store";
 import { Button } from "@/ui/button";
 import {
   Card,
@@ -20,7 +21,7 @@ export const RegisterForm = () => {
   const [selectedCard, setSelectedCard] = useState("account");
   const [accountData, setAccountData] = useState({ fullName: "", email: "" });
   return (
-    <div className="my-8 flex w-full sm:max-w-sm flex-col items-center gap-6">
+    <div className="mt-[8%] flex w-full sm:max-w-sm flex-col items-center gap-6">
       <Tabs value={selectedCard}>
         <TabsList>
           <TabsTrigger
@@ -84,8 +85,8 @@ export const RegisterForm = () => {
                 <Separator className="my-4" />
                 <div className="flex items-center gap-4">
                   <p>Already have an account?</p>
-                  <Button variant="outline">
-                    <Link to="/auth/register">Log In</Link>
+                  <Button type="button" variant="outline">
+                    <Link to="/auth/login">Log In</Link>
                   </Button>
                 </div>
               </CardFooter>
