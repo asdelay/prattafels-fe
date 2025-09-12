@@ -1,5 +1,5 @@
 import { useRegisterSchema } from "@/modules/AuthForm/helpers/useRegisterSchema";
-import { type RootState } from "@/store/store";
+import { useRegisterMutation } from "@/services/loginApi";
 import { Button } from "@/ui/button";
 import {
   Card,
@@ -14,12 +14,40 @@ import { Label } from "@/ui/label";
 import { Separator } from "@/ui/separator";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/ui/tabs";
 import { useState } from "react";
-import { Link } from "react-router";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router";
+import { setAccessToken } from "@/modules/AuthForm/authSlice/authSlice";
+import { toast } from "sonner";
+import loadingSvg from "@/assets/loading.svg";
 
 export const RegisterForm = () => {
-  const { accountForm, passwordForm } = useRegisterSchema();
   const [selectedCard, setSelectedCard] = useState("account");
   const [accountData, setAccountData] = useState({ fullName: "", email: "" });
+  const { accountForm, passwordForm } = useRegisterSchema();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const [register, { isLoading }] = useRegisterMutation();
+  const onRegister = async (data: {
+    fullName: string;
+    email: string;
+    password: string;
+  }) => {
+    try {
+      const result = await register(data).unwrap();
+      dispatch(setAccessToken(result.accessToken));
+      toast.success(`User ${accountData.email} is successfuly regisrated!`);
+      navigate("/");
+    } catch (err: any) {
+      console.log(err);
+    }
+  };
+
+  if (isLoading)
+    return (
+      <div>
+        <img src={loadingSvg} alt="Loading" />
+      </div>
+    );
   return (
     <div className="mt-[8%] flex w-full sm:max-w-sm flex-col items-center gap-6">
       <Tabs value={selectedCard}>
@@ -96,7 +124,7 @@ export const RegisterForm = () => {
         <TabsContent value="password">
           <form
             onSubmit={passwordForm.handleSubmit((data) => {
-              console.log({ ...accountData, ...data });
+              onRegister({ ...accountData, password: data.password });
             })}
           >
             <Card>

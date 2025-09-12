@@ -12,26 +12,34 @@ import { Button } from "@/ui/button";
 import { Input } from "@/ui/input";
 import { Label } from "@/ui/label";
 import { Separator } from "@/ui/separator";
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
 import { setAccessToken } from "@/modules/AuthForm/authSlice/authSlice";
+import loadingSvg from "@/assets/loading.svg";
 
 export const LoginForm = () => {
   const dispatch = useDispatch();
-  const [login, { isLoading, isError, data }] = useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
+  const navigate = useNavigate();
   const onLogin = async (data: { email: string; password: string }) => {
     try {
       const result = await login(data).unwrap();
       dispatch(setAccessToken(result.accessToken));
       toast.success("Login successful!");
+      navigate("/");
     } catch (err: any) {
       console.log(err);
     }
   };
   const { register, handleSubmit, errors } = useLoginSchema();
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading)
+    return (
+      <div>
+        <img src={loadingSvg} alt="Loading" />
+      </div>
+    );
   return (
     <form className="mt-[8%]" onSubmit={handleSubmit((data) => onLogin(data))}>
       <Card className="mt-4">

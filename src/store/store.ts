@@ -1,4 +1,4 @@
-import { loginApi } from "@/services/loginApi";
+import { baseApi } from "@/services/loginApi";
 import authReducer from "@/modules/AuthForm/authSlice/authSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import { rtkQueryErrorLogger } from "./errorLogger";
@@ -6,10 +6,10 @@ import { rtkQueryErrorLogger } from "./errorLogger";
 export const store = configureStore({
   reducer: {
     authSlice: authReducer,
-    [loginApi.reducerPath]: loginApi.reducer,
+    [baseApi.reducerPath]: baseApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware().concat(loginApi.middleware, rtkQueryErrorLogger),
+    getDefaultMiddleware().concat(baseApi.middleware, rtkQueryErrorLogger),
 });
 
 export type RootState = ReturnType<typeof store.getState>;

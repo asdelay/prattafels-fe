@@ -6,11 +6,17 @@ interface LoginRequest {
   password: string;
 }
 
-interface LoginResponse {
+interface RegisterRequest {
+  fullName: string;
+  email: string;
+  password: string;
+}
+
+interface AuthResponse {
   accessToken: string;
 }
 
-export const loginApi = createApi({
+export const baseApi = createApi({
   reducerPath: "loginApi",
   baseQuery: fetchBaseQuery({
     baseUrl: "http://localhost:3000",
@@ -24,9 +30,16 @@ export const loginApi = createApi({
     credentials: "include",
   }),
   endpoints: (builder) => ({
-    login: builder.mutation<LoginResponse, LoginRequest>({
+    login: builder.mutation<AuthResponse, LoginRequest>({
       query: (credentials) => ({
         url: "/auth/login",
+        method: "POST",
+        body: credentials,
+      }),
+    }),
+    register: builder.mutation<AuthResponse, RegisterRequest>({
+      query: (credentials) => ({
+        url: "/auth/register",
         method: "POST",
         body: credentials,
       }),
@@ -34,4 +47,4 @@ export const loginApi = createApi({
   }),
 });
 
-export const { useLoginMutation } = loginApi;
+export const { useLoginMutation, useRegisterMutation } = baseApi;
