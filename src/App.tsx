@@ -1,12 +1,15 @@
 import { Outlet } from "react-router";
-import { ModeToggle } from "./components/ModeToggle";
 import { Toaster } from "./ui/sonner";
+import Navbar from "./components/Navbar";
 
 function App() {
   return (
-    <div className="min-h-[100vh] flex flex-col items-center px-4 md:px-8 lg:px-[200px]">
+    <div>
+      <Navbar />
       <Toaster />
-      <Outlet />
+      <div className="mt-20 flex-col items-center px-4 md:px-8 lg:px-[200px]">
+        <Outlet />
+      </div>
     </div>
   );
 }
