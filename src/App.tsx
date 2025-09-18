@@ -7,7 +7,7 @@ function App() {
     <div>
       <Navbar />
       <Toaster />
-      <div className="mt-20 flex-col items-center px-4 md:px-8 lg:px-[200px]">
+      <div className="mt-16 flex-col items-center px-4 md:px-8 lg:px-[200px]">
         <Outlet />
       </div>
     </div>
