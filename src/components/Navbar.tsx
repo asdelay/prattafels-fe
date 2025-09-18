@@ -3,12 +3,15 @@ import { ModeToggle } from "./ModeToggle";
 import { motion } from "motion/react";
 import {
   Drawer,
+  DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
 } from "@/ui/drawer";
 import { Separator } from "@/ui/separator";
+import { Link } from "react-router";
+import Burger from "@/ui/burger";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -16,43 +19,37 @@ const Navbar = () => {
     <div className="p-4 fixed top-0 left-0 right-0 flex justify-end items-center">
       <Drawer direction="left" onOpenChange={() => setIsOpen((prev) => !prev)}>
         <DrawerTrigger>
-          <button className="relative w-8 h-8 cursor-pointer">
-            <motion.span
-              className="absolute top-2 left-0 w-8 h-1 bg-white rounded"
-              animate={isOpen ? { rotate: 45, y: 7.6 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.span
-              className="absolute top-4 left-0 w-8 h-1 bg-white rounded"
-              animate={isOpen ? { opacity: 0 } : { opacity: 1 }}
-              transition={{ duration: 0.3 }}
-            />
-            <motion.span
-              className="absolute top-6 left-0 w-8 h-1 bg-white rounded"
-              animate={isOpen ? { rotate: -45, y: -7.6 } : { rotate: 0, y: 0 }}
-              transition={{ duration: 0.3 }}
-            />
-          </button>
+          <Burger isOpen={isOpen} />
         </DrawerTrigger>
-        <DrawerContent className="">
+        <DrawerContent>
           <DrawerHeader>
-            <DrawerTitle>HOME</DrawerTitle>
+            <DrawerTitle>
+              <Link to="/">HOME</Link>
+            </DrawerTitle>
           </DrawerHeader>
           <Separator />
           <DrawerHeader>
-            <DrawerTitle>LOCATIONS</DrawerTitle>
+            <DrawerTitle>
+              <Link to="/locations">LOCATIONS</Link>
+            </DrawerTitle>
           </DrawerHeader>
           <Separator />
           <DrawerHeader>
-            <DrawerTitle>ALL EVENTS</DrawerTitle>
+            <DrawerTitle>
+              <Link to="/events">ALL EVENTS</Link>
+            </DrawerTitle>
           </DrawerHeader>
           <Separator />
           <DrawerHeader>
-            <DrawerTitle>MY ACCOUNT</DrawerTitle>
+            <DrawerTitle>
+              <Link to="/account">MY ACCOUNT</Link>
+            </DrawerTitle>
           </DrawerHeader>
           <Separator />
           <DrawerHeader>
-            <DrawerTitle>BECOME A TEACHER</DrawerTitle>
+            <DrawerTitle>
+              <Link to="/become-teacher">BECOME A TEACHER</Link>
+            </DrawerTitle>
           </DrawerHeader>
         </DrawerContent>
       </Drawer>
