@@ -1,9 +1,6 @@
-import React, { useState } from "react";
-import { ModeToggle } from "./ModeToggle";
-import { motion } from "motion/react";
+import { useState } from "react";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerHeader,
   DrawerTitle,
