@@ -1,4 +1,3 @@
-import Gementehuis from "@/assets/gementehuis_dadizele.jpg";
 import Gementehuis2 from "@/assets/gementehuis_dadizele2.jpg";
 import MoorsledeBibliotheek from "@/assets/bibliotheek_moorslede.jpg";
 import LocationCard from "./LocationCard";
