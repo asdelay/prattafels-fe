@@ -10,6 +10,10 @@ import { Provider } from "react-redux";
 import { store } from "@/store/store.ts";
 import AuthLayout from "./components/AuthLayout.tsx";
 import { AdminPage } from "./pages/AdminPage/index.ts";
+import DashboardPage from "./pages/AdminPage/components/DashboardPage.tsx";
+import EventsPage from "./pages/AdminPage/components/EventsPage.tsx";
+import OfficesPage from "./pages/AdminPage/components/OfficesPage.tsx";
+import UsersPage from "./pages/AdminPage/components/UsersPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -23,7 +27,12 @@ createRoot(document.getElementById("root")!).render(
             <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<RegisterPage />} />
           </Route>
-          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/admin" element={<AdminPage />}>
+            <Route index element={<DashboardPage />} />
+            <Route path="events" element={<EventsPage />} />
+            <Route path="offices" element={<OfficesPage />} />
+            <Route path="users" element={<UsersPage />} />
+          </Route>
         </Routes>
       </ThemeProvider>
     </Provider>
