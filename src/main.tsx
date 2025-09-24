@@ -14,6 +14,7 @@ import DashboardPage from "./pages/AdminPage/components/DashboardPage.tsx";
 import EventsPage from "./pages/AdminPage/components/EventsPage.tsx";
 import OfficesPage from "./pages/AdminPage/components/OfficesPage.tsx";
 import UsersPage from "./pages/AdminPage/components/UsersPage.tsx";
+import ProtectedRoute from "./components/ProtectedRoute.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -27,7 +28,14 @@ createRoot(document.getElementById("root")!).render(
             <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<RegisterPage />} />
           </Route>
-          <Route path="/admin" element={<AdminPage />}>
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute role={"User"}>
+                <AdminPage />
+              </ProtectedRoute>
+            }
+          >
             <Route index element={<DashboardPage />} />
             <Route path="events" element={<EventsPage />} />
             <Route path="offices" element={<OfficesPage />} />
