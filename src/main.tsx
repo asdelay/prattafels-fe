@@ -9,6 +9,7 @@ import { MainPage } from "./pages/MainPage/index.ts";
 import { Provider } from "react-redux";
 import { store } from "@/store/store.ts";
 import AuthLayout from "./components/AuthLayout.tsx";
+import { AdminPage } from "./pages/AdminPage/index.ts";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -22,6 +23,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="login" element={<LoginPage />} />
             <Route path="register" element={<RegisterPage />} />
           </Route>
+          <Route path="/admin" element={<AdminPage />} />
         </Routes>
       </ThemeProvider>
     </Provider>

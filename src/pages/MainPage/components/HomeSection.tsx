@@ -12,7 +12,7 @@ const HomeSection = () => {
             transform: "translateY(0)",
             transition: { duration: 1, ease: "easeInOut" },
           }}
-          className="relative text-[48px] text-center tracking-widest"
+          className="relative text-[48px] md:text-7xl lg:text-8xl text-center tracking-widest"
         >
           PRATTAFELS
         </motion.h1>
@@ -63,7 +63,7 @@ const HomeSection = () => {
           y: 0,
           transition: { duration: 1, ease: "easeOut" },
         }}
-        className="relative font-semibold text-[20px] uppercase my-24"
+        className="relative font-semibold text-[20px] md:text-3xl lg:text-4xl uppercase my-24"
       >
         a real opportunity <br /> to practice dutch with natives <br /> for free
       </motion.h3>

@@ -12,7 +12,7 @@ const LocationCard = ({ imageSrc }: { imageSrc: string }) => {
         transition: { duration: 0.3, ease: "easeInOut" },
       }}
       whileHover={{ y: -4, scale: 1.02 }}
-      className="my-12 mx-16 p-8 flex flex-col items-center gap-4 bg-[#24242444] shadow-xl/80 rounded-2xl cursor-pointer"
+      className="min-w-[300px] mx-16 md:mx-0 p-8 flex flex-col items-center gap-4 bg-[#24242444] shadow-xl/80 rounded-2xl cursor-pointer"
     >
       <img
         className="rounded-2xl object-cover object-bottom h-[240px] w-full duration-300 "

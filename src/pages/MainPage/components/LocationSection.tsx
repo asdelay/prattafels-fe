@@ -7,8 +7,10 @@ const LocationSection = () => {
       <h3 className="font-bold text-4xl text-center">
         Wherever you are, there’s a Prattafel waiting.
       </h3>
-      <LocationCard imageSrc={Gementehuis2} />
-      <LocationCard imageSrc={MoorsledeBibliotheek} />
+      <div className="flex flex-col justify-center items-center md:flex-row my-8 gap-8">
+        <LocationCard imageSrc={Gementehuis2} />
+        <LocationCard imageSrc={MoorsledeBibliotheek} />
+      </div>
     </section>
   );
 };
