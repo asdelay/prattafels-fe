@@ -15,7 +15,10 @@ import { Separator } from "@/ui/separator";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
-import { setAccessToken } from "@/modules/AuthForm/authSlice/authSlice";
+import {
+  setAccessToken,
+  setUser,
+} from "@/modules/AuthForm/authSlice/authSlice";
 import loadingSvg from "@/assets/loading.svg";
 
 export const LoginForm = () => {
@@ -26,6 +29,7 @@ export const LoginForm = () => {
     try {
       const result = await login(data).unwrap();
       dispatch(setAccessToken(result.accessToken));
+      dispatch(setUser(result.user));
       toast.success("Login successful!");
       navigate("/");
     } catch (err: any) {

@@ -2,7 +2,7 @@ import { motion } from "motion/react";
 
 const Burger = ({ isOpen }: { isOpen: boolean }) => {
   return (
-    <motion.button
+    <motion.div
       whileHover={{ scale: 1.1 }}
       className="relative w-8 h-8 cursor-pointer"
     >
@@ -21,7 +21,7 @@ const Burger = ({ isOpen }: { isOpen: boolean }) => {
         animate={isOpen ? { rotate: -45, y: -7.6 } : { rotate: 0, y: 0 }}
         transition={{ duration: 0.3 }}
       />
-    </motion.button>
+    </motion.div>
   );
 };
 

@@ -1,4 +1,6 @@
+import { logout, setAccessToken, setCredentials } from "@/modules/AuthForm/authSlice/authSlice";
 import type { RootState } from "@/store/store";
+import type { User } from "@/types";
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 interface LoginRequest {
@@ -14,6 +16,7 @@ interface RegisterRequest {
 
 interface AuthResponse {
   accessToken: string;
+  user: User;
 }
 
 export const baseApi = createApi({
@@ -44,7 +47,18 @@ export const baseApi = createApi({
         body: credentials,
       }),
     }),
+    refresh: builder.query<AuthResponse, void>({
+      query: () => '/auth/refresh',
+      async onQueryStarted(_, { dispatch, queryFulfilled }) {
+        try {
+          const { data } = await queryFulfilled
+          dispatch(setCredentials(data))
+        } catch {
+          dispatch(logout())
+        }
+      },
+    })
   }),
 });
 
-export const { useLoginMutation, useRegisterMutation } = baseApi;
+export const { useLoginMutation, useRegisterMutation, useRefreshQuery } = baseApi;

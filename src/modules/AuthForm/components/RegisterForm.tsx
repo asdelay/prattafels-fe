@@ -16,7 +16,10 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/ui/tabs";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router";
-import { setAccessToken } from "@/modules/AuthForm/authSlice/authSlice";
+import {
+  setAccessToken,
+  setUser,
+} from "@/modules/AuthForm/authSlice/authSlice";
 import { toast } from "sonner";
 import loadingSvg from "@/assets/loading.svg";
 
@@ -35,6 +38,7 @@ export const RegisterForm = () => {
     try {
       const result = await register(data).unwrap();
       dispatch(setAccessToken(result.accessToken));
+      dispatch(setUser(result.user));
       toast.success(`User ${accountData.email} is successfuly regisrated!`);
       navigate("/");
     } catch (err: any) {
