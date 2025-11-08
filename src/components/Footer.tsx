@@ -5,14 +5,14 @@ const Footer = () => {
   return (
     <section className="relative z-20 rounded-t-2xl bg-[rgb(217,217,217)] mt-20 px-4 py-8 text-black uppercase font-[montserrat]">
       <h3 className="font-semibold text-4xl">
-        Prattafels © {new Date().getFullYear()}
+        Praattafels © {new Date().getFullYear()}
       </h3>
       <h5 className="font-semibold text-2xl mt-4">
         your place to learn, practice, and grow in dutch
       </h5>
       <div className="font-semibold text-xl mt-4">
         <h6>Contact Us:</h6>
-        <a href="mailto:prattafels@gmail.com">prattafels@gmail.com</a>
+        <a href="mailto:praattafels@gmail.com">praattafels@gmail.com</a>
       </div>
 
       <div className="text-xl mt-4 flex flex-col">

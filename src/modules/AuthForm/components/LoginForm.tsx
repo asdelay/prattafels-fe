@@ -1,5 +1,5 @@
 import { useLoginSchema } from "@/modules/AuthForm/helpers/useLoginSchema";
-import { useLoginMutation } from "@/services/loginApi";
+import { useLoginMutation } from "@/modules/AuthForm/authApi";
 import {
   Card,
   CardContent,
@@ -15,10 +15,7 @@ import { Separator } from "@/ui/separator";
 import { Link, useNavigate } from "react-router";
 import { toast } from "sonner";
 import { useDispatch } from "react-redux";
-import {
-  setAccessToken,
-  setUser,
-} from "@/modules/AuthForm/authSlice/authSlice";
+import { setAccessToken, setUser } from "@/modules/AuthForm/authSlice";
 import loadingSvg from "@/assets/loading.svg";
 
 export const LoginForm = () => {

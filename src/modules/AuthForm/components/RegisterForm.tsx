@@ -1,5 +1,5 @@
 import { useRegisterSchema } from "@/modules/AuthForm/helpers/useRegisterSchema";
-import { useRegisterMutation } from "@/services/loginApi";
+import { useRegisterMutation } from "@/modules/AuthForm/authApi";
 import { Button } from "@/ui/button";
 import {
   Card,
@@ -16,10 +16,7 @@ import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/ui/tabs";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router";
-import {
-  setAccessToken,
-  setUser,
-} from "@/modules/AuthForm/authSlice/authSlice";
+import { setAccessToken, setUser } from "@/modules/AuthForm/authSlice";
 import { toast } from "sonner";
 import loadingSvg from "@/assets/loading.svg";
 

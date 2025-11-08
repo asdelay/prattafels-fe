@@ -4,7 +4,7 @@ const TeacherCard = ({ imageUrl }: { imageUrl: string }) => {
   return (
     <div className="min-w-[200px] mx-10 flex flex-col justify-center items-center text-center">
       <img
-        className="rounded-full object-cover w-full"
+        className="rounded-full object-cover w-[140px]"
         src={imageUrl}
         alt="Teacher's photo"
       />

@@ -14,7 +14,7 @@ const HomeSection = () => {
           }}
           className="relative text-[48px] md:text-7xl lg:text-8xl text-center tracking-widest"
         >
-          PRATTAFELS
+          PRAATTAFELS
         </motion.h1>
       </div>
       <div className="mt-16 relative min-h-[200px]">

@@ -17,6 +17,7 @@ import UsersPage from "./pages/AdminPage/components/UsersPage.tsx";
 import ProtectedRoute from "./components/ProtectedRoute.tsx";
 import { AccountPage } from "./pages/AccountPage/index.ts";
 import { Toaster } from "./ui/sonner.tsx";
+import { Locations } from "./pages/LocationsPage/index.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -32,6 +33,7 @@ createRoot(document.getElementById("root")!).render(
           >
             <Route path="/" element={<App />}>
               <Route index element={<MainPage />} />
+              <Route path="locations" element={<Locations />} />
               <Route
                 path="account"
                 element={

@@ -1,4 +1,4 @@
-import { useRefreshQuery } from "@/services/loginApi";
+import { useRefreshQuery } from "@/modules/AuthForm/authApi";
 import type { RootState } from "@/store/store";
 import type { UserRole } from "@/types";
 import React, { type FC } from "react";

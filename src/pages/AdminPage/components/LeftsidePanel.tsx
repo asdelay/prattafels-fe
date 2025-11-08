@@ -8,7 +8,7 @@ const LeftsidePanel = () => {
     <div className="fixed w-84 flex flex-col h-full border-r-1  min-h-[100vh]">
       <div className="p-4 border-b">
         <h3 className="text-2xl font-bold font-[montserrat] tracking-widest ">
-          PRATTAFELS-ADMIN
+          PRAATTAFELS-ADMIN
         </h3>
       </div>
       <div className="p-4 flex flex-col gap-2 flex-1 mt-4 text-lg font-semibold text-gray-200">

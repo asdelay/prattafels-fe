@@ -1,5 +1,5 @@
-import { baseApi } from "@/services/loginApi";
-import authReducer from "@/modules/AuthForm/authSlice/authSlice";
+import { baseApi } from "@/services/api";
+import authReducer from "@/modules/AuthForm/authSlice";
 import { configureStore } from "@reduxjs/toolkit";
 import { rtkQueryErrorLogger } from "./errorLogger";
 

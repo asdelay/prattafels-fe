@@ -8,7 +8,7 @@ const TeachersSection = () => {
       <h3 className="font-bold text-4xl text-center my-12">
         Guided by friedly facilitators
       </h3>
-      <div className="flex flex-nowrap overflow-x-scroll  py-4">
+      <div className="flex justify-center flex-nowrap overflow-x-scroll  py-4">
         <TeacherCard imageUrl={CriRo} />
         <TeacherCard imageUrl={CriRo} />
         <TeacherCard imageUrl={CriRo} />
