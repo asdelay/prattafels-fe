@@ -19,6 +19,7 @@ import { AccountPage } from "./pages/AccountPage/index.ts";
 import { Toaster } from "./ui/sonner.tsx";
 import { Locations } from "./pages/LocationsPage/index.tsx";
 import { EventsPage } from "./pages/EventsPage/index.ts";
+import { BecomeTeacher } from "./pages/BecomeTeacherPage/index.ts";
 
 createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
@@ -46,6 +47,7 @@ createRoot(document.getElementById("root")!).render(
               <Route path="events">
                 <Route index element={<EventsPage />} />
               </Route>
+              <Route path="become-teacher" element={<BecomeTeacher />} />
             </Route>
             <Route path="/auth" element={<AuthLayout />}>
               <Route path="login" element={<LoginPage />} />

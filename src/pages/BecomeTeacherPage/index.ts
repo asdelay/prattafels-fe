@@ -1,0 +1,1 @@
+export {BecomeTeacher} from "./components/BecomeTeacher";

@@ -2,9 +2,17 @@ const Avatar = ({
   fullName,
   className,
 }: {
-  fullName: string;
+  fullName?: string;
   className?: string;
 }) => {
+  if (!fullName) {
+    return (
+      <div
+        className={`${className} flex justify-center items-center uppercase p-2 size-10 rounded-full bg-[#d9d9d9] text-black`}
+      ></div>
+    );
+  }
+
   const splittedName = fullName.split(" ");
   let initials = "";
   if (splittedName.length > 1) {
