@@ -1,1 +1,2 @@
-export {AdminPage} from './components/AdminPage'
+export { AdminEventsPage } from "./components/EventsPage";
+export { AdminPage } from "./components/AdminPage";

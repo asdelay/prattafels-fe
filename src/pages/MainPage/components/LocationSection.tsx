@@ -5,7 +5,7 @@ const LocationSection = () => {
   return (
     <section className="flex flex-col justify-center">
       <h3 className="font-bold text-4xl text-center">
-        Wherever you are, there’s a Prattafel waiting.
+        Wherever you are, there’s a Praattafel waiting.
       </h3>
       <div className="flex flex-col justify-center items-center md:flex-row my-8 gap-8">
         <LocationCard imageSrc={Gementehuis2} />
